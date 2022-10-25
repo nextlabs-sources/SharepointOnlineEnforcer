@@ -1,0 +1,49 @@
+@echo off
+subst /d o:
+subst /d r:
+subst /d v:
+subst /d x:
+subst /d t:
+
+subst o: "C:\Program Files\Microsoft SDKs\Windows/v7.0"
+subst r: "C:\Program Files\Microsoft SDKs\Windows/v6.0A"
+subst v: "C:\program files (x86)\Microsoft Visual Studio 11"
+subst x: "C:\Program Files (x86)\Microsoft Visual Studio 12.0"
+
+export BUILD_NUMBER=1000
+export WORKSPACE=D:/Projects/Nextlabs/SharePoint/SharePointOnline/SPOE
+export NLBUILDROOT=D:/Projects/Nextlabs/SharePoint/SharePointOnline/SPOE
+export NLEXTERNALDIR=D:/Projects/Nextlabs/SharePoint/SharePointOnline/SPOE
+export NLEXTERNALDIR2=D:/Projects/Nextlabs/SharePoint/SharePointOnline/SPOE
+export NLEXTERNALGITDIR=D:/Projects/Nextlabs/SharePoint/SharePointOnline/SPOE
+export JAVA_HOME=${NLEXTERNALDIR2}/j2sdk/jdk1.7.0_71
+export BUID_OUTPUT=${WORKSPACE}/output
+export PUBLISH_TO_BODA=0
+
+
+cd ${WORKSPACE}
+
+source ./setEnv
+./buildRelease
+
+./configure --type=release
+
+
+make TARGETENVARCH=x64 BUILDTYPE=release
+
+
+// Build and deploy commands
+cd D:\Projects\Nextlabs\SharePointOnline\SPOE\prod\SPOLE\SPOLE\bin\x64\Debug\app.publish\1.2.0.0
+D:
+SPOLE.Web.deploy.cmd /Y –allowUntrusted
+
+MSBuild SPOLE.sln -t:Rebuild -p:Configuration=Release
+MSBuild SPOLE.sln -t:Rebuild -p:Configuration=Release /p:Platform=x64
+MSBuild SPOLE.sln -t:Rebuild -p:Configuration=Release /p:Platform=x64  /p:DeployOnBuild=True;PublishProfile=profile;
+
+MSBuild SPOLE.sln -t:Rebuild -p:Configuration=Release /p:Platform=x64  /p:DeployOnBuild=True;PublishProfile=profile;DeployTarget=Package;PackageTempRootDir=S:\development\Jenkins\SPOLE
+
+/p:DeployOnBuild=true;DeployTarget=PipelinePreDeployCopyAllFilesToOneFolder;PackageTempRootDir="\\sayedha-w500\BuildDrops\Publish";AutoParameterizationWebConfigConnectionStrings=false
+
+
+if deploy.cmd file donot changed, we can publish first and then zip it no need use deploy command directly.

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <ClientSideComponentInstance
+        Title="NxlSpoeAppCustomizer"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ComponentId="58090174-662a-490e-9e59-5320128db48b"
+        Properties="{&quot;testMessage&quot;:&quot;Test message&quot;}">
+    </ClientSideComponentInstance>
+</Elements>

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://nextlabstest.sharepoint.com/sites/louis-add-ins/test-subsite/HR/Forms/AllItems.aspx",
+      "customActions": {
+        "58090174-662a-490e-9e59-5320128db48b": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    },
+    "nxlSpoeAppCustomizer": {
+      "pageUrl": "https://nextlabstest.sharepoint.com/sites/louis-add-ins/test-subsite/HR/Forms/AllItems.aspx",
+      "customActions": {
+        "58090174-662a-490e-9e59-5320128db48b": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    }
+  }
+}

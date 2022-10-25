@@ -1,0 +1,95 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+body {
+    font-family: Verdana,Arial,sans-serif;
+    color: #676767;
+    font-size: 8pt;
+}
+header {
+    width: 100%;
+    vertical-align: middle;
+}
+    header a {
+        display: inline-block;
+        background-color: aqua;
+    }
+        header a img {
+            display: block;
+        }
+section {
+    display: flex;
+    margin-left: 5px;
+    font-size: 15px;
+    max-width: 1000px;
+}
+
+    section .left {
+        width: 490px;
+    }
+
+    section .right {
+        overflow-x: auto;
+        overflow-y: scroll;
+        margin-left: 65px;
+        display: flex;
+        align-items: center;
+    }
+.text {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+    .text .title h2 {
+        font-size: 2.46em;
+        margin: 10px 0;
+    }
+
+    .text .desc {
+        width: 400px;
+        height: 60px;
+        background-color: Highlight;
+    }
+        .text .desc p {
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 26px;
+            color: #fff;
+        }
+.overview {
+    width: 700px;
+    height: 400px;
+   
+}
+    .overview .right {
+        overflow-x: auto;
+        overflow-y: scroll;
+        margin-left: 0;
+    }
+    .overview .left{
+        width:350px;
+    }
+.btns {
+    padding-left: 20px;
+}
+footer.btns #btn-save, footer.btns #btn-cancel {
+    display: inline-block;
+    font-size: 11px;
+    min-width: 6em;
+    padding: 7px 10px;
+    border: 1px solid #ABABAB;
+    background-color: #FFF;
+}
+
+footer.btns #btn-cancel {
+    margin-left: 15px;
+}
+
+    footer.btns #btn-save:hover, footer.btns #btn-cancel:hover {
+        background-color: rgb(230, 242, 250);
+        border-color: rgb(146, 192, 224);
+    }

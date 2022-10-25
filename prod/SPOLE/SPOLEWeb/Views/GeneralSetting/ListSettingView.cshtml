@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/zTreeStyle.css" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/ListSetting.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <div style="background-color:#1a4994;width:100%;">
+            <img src="~/Content/img/NextLabs.png" />
+        </div>
+    </header>
+    <section class="title">
+        <h2>@ViewBag.Title</h2>
+    </section>
+    <div id="table">
+        <ul class="table">
+            <li class="desc">
+                <div>
+                    <h4>@ViewBag.DescriptionTitle</h4>
+                    <p>@ViewBag.Description</p>
+                </div>
+            </li>
+            <li class="operation">
+                <div>
+                    <div id="box">
+                        <div class="title">
+                            <input type="checkbox" class="select-all" />
+                            <span>@ViewBag.ColumnTitle</span>
+                        </div>
+                        <div class="list"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="btns">
+        <button class="save">Save</button>
+        <button class="cancel">Cancel</button>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/msgbox.js"></script>
+    <script>
+        var isList = '@ViewBag.isList';
+        var jsonData = @Html.Raw(Json.Encode(@ViewBag.columns));
+    </script>
+    <script src="~/Scripts/libSetting.js"></script>
+</body>
+</html>

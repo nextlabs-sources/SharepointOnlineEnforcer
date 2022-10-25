@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body style="font-family:'Segoe UI', 'Segoe', Tahoma, Helvetica, Arial,sans-serif;">
+    <div class="container">
+        @{
+            if (ViewBag.ErrorWhere == "GeneralSetting")
+            {
+                <div class="jumbotron">
+                    <h2>@ViewBag.ErrorDescription1</h2>
+                    <p>@ViewBag.ErrorDescription3</p>
+                </div>
+            }
+            else
+            {
+                <div class="jumbotron">
+                    <h2>@ViewBag.ErrorDescription2</h2>
+                    <p>@ViewBag.ErrorDescription3</p>
+                </div>
+            }
+        }
+    </div>
+</body>
+</html>

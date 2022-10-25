@@ -1,0 +1,25 @@
+include $(NLBUILDROOT)/build/Makefile.ver
+
+VERSION_STR=$(VERSION_MAJOR_SPOLE).$(VERSION_MINOR_SPOLE)
+
+
+PACKAGE_FILE=SharePointOnlineEnforcer-$(VERSION_STR)-$(VERSION_BUILD_SHORT)-$(shell date +"%Y%m%d%H%M").zip
+PACKAGE_PDB_FILE=SharePointOnlineEnforcer-PDB-$(VERSION_STR)-$(VERSION_BUILD_SHORT)-$(shell date +"%Y%m%d%H%M").zip
+
+#DEST_INSTALL_DIR=$(NLBUILDROOT)/bin/install
+DEST_INSTALL_DIR=$(BUILD_OUTPUT)
+.PHONY: all
+all: installer
+
+PHONY: installer
+installer:
+	@echo "INFO: Make installer"
+	@if [ ! -d $(DEST_INSTALL_DIR) ]; then					\
+		mkdir -p $(DEST_INSTALL_DIR) ;						\
+	fi
+
+	cp -prf $(NLBUILDROOT)/Install/Deploy/* $(NLBUILDROOT)/bin/release_win_x64/
+
+	@echo "INFO: Zip assembly"
+	cd $(NLBUILDROOT)/bin/release_win_x64; zip -r $(DEST_INSTALL_DIR)/$(PACKAGE_FILE) *
+	cd $(NLBUILDROOT)/bin/pdb; zip -r $(DEST_INSTALL_DIR)/$(PACKAGE_PDB_FILE) *

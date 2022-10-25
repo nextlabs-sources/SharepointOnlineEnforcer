@@ -1,0 +1,12 @@
+.nxl-message {
+  font-weight: bold;
+}
+
+.nxl-error {
+  color: red;
+  font-weight: bold;
+}
+
+.nxl-hide {
+  display: none;
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SPOConfiguration>
+  <JSLinks>
+    <JSLink name="SPOLEBrowserVersionControl" file="browser_version_control.js" address="~/Scripts/browser_version_control.js" Sequence="0" type="Web"/>
+    <JSLink name="SPOLETrimListItems" file="trim_list_items.js" address="~/Scripts/trim_list_items.js" type="Web" Sequence="1" />
+    <JSLink name="SPOLETrimSearchResults" file="trim_search_results.js" address="~/Scripts/trim_search_results.js" Sequence="1" type="Web"/>
+    <JSLink name="SPOLEListExperienceControl" file="list_experience_control.js" address="~/Scripts/list_experience_control.js" Sequence="1" type="Web"/>
+  </JSLinks>
+</SPOConfiguration>
